@@ -1,15 +1,15 @@
 programa
-{
+{	
+	inclua biblioteca Util
 
-	real saldo=0.00, debito=0.00, credito=0.00
-	inteiro numconta
+	real saldo=0.00
 	const inteiro ANIVCONTA= 0
+	cadeia bancog6[8] = {"Tipos de conta","Conta Poupança", "Conta Corrente", "Conta Especial", "Conta Empresa", "Conta Estudantil", "Extrato","Sair"}
+	inteiro opcao
+	inteiro diatual 
 	
 	funcao inicio()
 	{
-		cadeia bancog6[7] = {"Tipos de conta","Conta Poupança", "Conta Corrente", "Conta Especial", "Conta Empresa", "Conta Estudantil", "Sair"}
-		inteiro tipoconta
-		inteiro diatual 
 	
 		
 		escreva("\t\t\t\t°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
@@ -18,23 +18,85 @@ programa
 		escreva("\t\t\t\tO Banco com a sua essência \n")
 		escreva("\t\t\t\tSomos o G6, venha fazer parte!\n")
 		escreva("\t\t\t\t°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
-
-		para(inteiro x=1; x<7; x++){
-			escreva(x+" - " + bancog6[x] + "\n")
-		}
-		escreva("Digite qual o numero da sua conta: ")
-		leia(numconta)
-		limpa()
+		Util.aguarde(2000)
 		
-		escreva(bancog6[tipoconta])
-
-
 		escreva("\nDigite o dia atual: ")
-		leia(diatual)	
+		leia(diatual)
+		limpa()
+		menu()
+			
 		
 		
 	}
 		funcao menu(){
+
+			escreva("\tG6 Bank\n\n")
+
+			para(inteiro x=1; x<8; x++){
+			escreva(x+" - " + bancog6[x] + "\n")
+		}    
+			escreva("Digite uma opção : \n")
+			leia(opcao)
+
+			
+
+			escolha(opcao){
+				caso 1:
+				contaPoupanca()
+				pare
+				caso 2:
+				contaCorente()
+				pare
+				caso 3:
+				contaEmpresa()
+				pare
+				caso 4:
+				contaEstudantil()
+				pare
+				caso 6:
+				extrato()
+				pare
+				caso 7:
+				limpa()
+				escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+				Util.aguarde(3000)
+				pare
+				caso contrario:
+				limpa()
+				escreva("\t\t\t\t\tOpção inválida.\n\n\n")
+				Util.aguarde(1000)
+				menu()
+					
+			}
+				limpa()
+			
+		}
+
+		funcao extrato(){
+			
+		}
+		funcao debito(){
+			
+		}
+		funcao credito(){
+			
+		}
+
+		funcao contaPoupanca(){
+			escreva("Bem vinde a Conta Poupança G6")
+			
+		}
+
+		funcao contaCorente(){
+			
+		}
+		funcao contaEspecial(){
+			
+		}
+		funcao contaEmpresa(){
+			
+		}
+		funcao contaEstudantil(){
 			
 		}
 }
@@ -43,7 +105,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 801; 
+ * @POSICAO-CURSOR = 742; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
