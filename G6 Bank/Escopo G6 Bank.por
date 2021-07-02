@@ -3,9 +3,11 @@ programa
 	inclua biblioteca Util
 
 	real saldo=0.00
+	real operacoes[10]
 	const inteiro ANIVCONTA= 0
 	cadeia bancog6[8] = {"Tipos de conta","Conta Poupança", "Conta Corrente", "Conta Especial", "Conta Empresa", "Conta Estudantil", "Extrato","Sair"}
 	inteiro opcao
+	caracter opLetra
 	inteiro diatual 
 	
 	funcao inicio()
@@ -45,7 +47,7 @@ programa
 				contaPoupanca()
 				pare
 				caso 2:
-				contaCorente()
+				contaCorrente()
 				pare
 				caso 3:
 				contaEmpresa()
@@ -72,8 +74,23 @@ programa
 			
 		}
 
+		funcao movimentacoes() {
+			para(inteiro x = 0; x < 10; x++){
+			operacoes[x] = 0.0
+			}
+		
+		}
+
 		funcao extrato(){
-			
+			para(inteiro x = 0; x < 10; x++){
+				se (operacoes[x]<0){
+					escreva ("Débito : ", operacoes[x]," reais. \n")
+					saldo+=operacoes[x]
+				} senao se(operacoes[x]>0){
+					escreva("Crédito : ", operacoes[x]," reais. \n")
+					saldo+=operacoes[x]
+				}
+			}	
 		}
 		funcao debito(){
 			
@@ -86,18 +103,50 @@ programa
 			escreva("Bem vinde a Conta Poupança G6")
 			
 		}
-
-		funcao contaCorente(){
+		funcao contaCorrente(){
+			escreva("Bem vinde a Conta Corente G6\n")
+			escreva ("Digite uma opção : \n")
+			escreva ("1 - Saldo\n2 - Saque\n3 - Deposito\n4 - Voltar ao Menu\n")
+			leia(opcao)
+			se (opcao == 1){
+				escreva("Seu saldo é de : ", saldo, " reais. \n")
+				escreva("Deseja fazer outra operação na Conta Corrente [S / N] ?\n")
+				leia(opLetra)
+				se (opLetra == 'S'ou opLetra == 's'){
+					contaCorrente()
+				} senao se (opLetra == 'N' ou opLetra == 'n') {
+					escreva ("Voltar ao menu [S / N] ? \n")
+					leia(opLetra)
+					se (opLetra == 'S' ou opLetra == 's'){
+						 menu()
+					} senao {
+						limpa()
+						escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+						Util.aguarde(3000)
+					}
+				}
+			}
+			se (opcao == 2){
+				escreva ("Digite o valor do saque : \n")
+				leia(opcao)	
+				}
+			se (opcao == 3){
+				}
+			se (opcao == 4){
+				menu()
+				}
+			
+			
 			
 		}
 		funcao contaEspecial(){
-			
+			escreva("Bem vinde a Conta Especial G6")
 		}
 		funcao contaEmpresa(){
-			
+			escreva("Bem vinde a Conta Empresa G6")
 		}
 		funcao contaEstudantil(){
-			
+			escreva("Bem vinde a Conta Estudantil G6")
 		}
 }
 /* $$$ Portugol Studio $$$ 
@@ -105,7 +154,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 742; 
+ * @POSICAO-CURSOR = 2744; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
