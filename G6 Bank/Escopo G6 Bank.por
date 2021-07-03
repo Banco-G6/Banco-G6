@@ -160,9 +160,52 @@ programa
 			escreva("Bem vinde a Conta Especial G6")
 		}
 		funcao contaEmpresa(){
+			inteiro emprestimo=0
+			real limite=10.000
+			para (inteiro i=1; i<=10; i++){
 			escreva("Bem vinde a Conta Empresa G6")
+			escreva("\nSeu saldo atual é de: "+saldo+" reais \n")
+			escreva("Escolha uma opção\n")
+			escreva ("1 -Fazer um empréstimo\n2 - Voltar ao menu\n")
+			leia(opcao)
+			se (opcao == 1){
+				escreva("Valor de empréstimo disponível: R$10.000\n  Deseja realizar um empréstimo [S / N] ?: \n")
+				leia(opcaoLetra)
+				se (opcaoLetra == 'S'ou opcaoLetra == 's'){
+					escreva ("Digite o valor que deseja: ")
+					leia(limite)
+				emprestimo+=limite
+				se (limite > 0 e limite <= 10000){
+					escreva ("Empréstimo concluído ! \nValor atual de saldo: " ,saldo+emprestimo, " em sua conta G6!\n")
+					escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+						 menu()
+				} senao
+					escreva ("Não é possivel retirar este valor\n")
+				} senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
+						escreva ("Voltar ao menu [S / N] ?: \n")
+					leia(opcaoLetra)
+					se (opcaoLetra == 'S' ou opcaoLetra == 's'){
+						 menu()
+					} senao {
+						limpa()
+						escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+					}
+				}
+			}
 		}
-		funcao contaEstudantil(){
+			escreva("Você chegou ao limite de movimentações da Conta Empresa")
+	          Util.aguarde(2000)
+	          escreva("Você gostaria de um empréstimo?: ")
+	          leia(opcao)
+	          se(opcao == 1){
+	          	saldo=saldo+emprestimo
+	          	escreva("Seu saldo atual é de: "+saldo)
+	          }senao {
+	          	limpa()
+	          	escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+	          	Util.aguarde(3000)	
+		}
+		}funcao contaEstudantil(){
 			escreva("Bem vinde a Conta Estudantil G6")
 		}
 }
@@ -171,9 +214,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 645; 
+ * @POSICAO-CURSOR = 4493; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {x, 34, 16, 1}-{x, 79, 16, 1};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
