@@ -3,10 +3,17 @@ programa
 	inclua biblioteca Util
 
 	real saldo=0.00
-	const inteiro ANIVCONTA= 0
+	real valor 
+	real anivconta
+	real contapresente = 25.00 
+	real newsaldo = 0.00
+	real credito = 0.00
+	real debito = 0.00
 	cadeia bancog6[8] = {"Tipos de conta","Conta Poupança", "Conta Corrente", "Conta Especial", "Conta Empresa", "Conta Estudantil", "Extrato","Sair"}
 	inteiro opcao
 	inteiro diatual 
+	caracter opletra
+	
 	
 	funcao inicio()
 	{
@@ -20,8 +27,7 @@ programa
 		escreva("\t\t\t\t°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
 		Util.aguarde(2000)
 		
-		escreva("\nDigite o dia atual: ")
-		leia(diatual)
+		
 		limpa()
 		menu()
 			
@@ -75,18 +81,53 @@ programa
 		funcao extrato(){
 			
 		}
-		funcao debito(){
-			
-		}
-		funcao credito(){
-			
-		}
 
 		funcao contaPoupanca(){
-			escreva("Bem vinde a Conta Poupança G6")
-			
-		}
+			para(saldo = 0; saldo <= 10; saldo++) {
+				//escreva("Seu saldo atual é de R$: ", saldo, "\n")
+				escreva("Antes de prosseguirmos, digite o dia em que sua conta foi criada...")
+				leia(anivconta)
+				
+				se(anivconta == contapresente) {
+				escreva("Parabéns! \n")
+				escreva("Seu saldo foi aumentado em 0,05%! \n")
+				escreva("Seu novo saldo a partir de hoje é:" + newsaldo, "\n")
+				newsaldo =  saldo + (saldo* 0.05)
 
+						escreva("Deseja algum valor?")
+						leia(valor)
+						escreva("\n1- Crédito ou 2- Débito")
+						leia(opletra)
+                              se(opletra == '1'){
+                              	credito = (newsaldo + valor)
+                              	escreva("Seu saldo atual é de: ", credito, "\n")
+                              }
+                              senao{
+                              	debito = (newsaldo - valor)
+                              	escreva("Seu saldo atual é de: ", debito, "\n")
+                              	
+                              }
+				
+				}
+				senao{
+					escreva("Seu Saldo infelizmente não foi premiado hoje \n")
+				
+						escreva("Deseja algum valor?")
+						leia(valor)
+						escreva("\n1- Crédito ou 2- Débito")
+						leia(opletra)
+                              se(opletra == '1'){
+                              	credito = (saldo + valor)
+                              	escreva("Seu saldo atual é de: ", credito, "\n")
+                              }
+                              senao{
+                              	debito = (saldo - valor)
+                              	escreva("Seu saldo atual é de: ", debito, "\n")
+                              	
+                              }
+				}
+		}
+		}
 		funcao contaCorente(){
 			
 		}
@@ -105,7 +146,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 742; 
+ * @POSICAO-CURSOR = 3316; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
