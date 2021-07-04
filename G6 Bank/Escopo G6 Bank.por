@@ -1,8 +1,7 @@
 programa
 {	
 	inclua biblioteca Util
-
-<<<<<<< HEAD
+     
 	real saldo=0.00
 	real valor 
 	real anivconta
@@ -14,15 +13,9 @@ programa
 	inteiro opcao
 	inteiro diatual 
 	caracter opletra
-	
-=======
-	real saldo=0.00, valor = 0.00
-	const inteiro ANIVERSARIOCONTA= 0
-	cadeia bancoG6[7] = {"Tipos de conta","Conta Poupança", "Conta Corrente", "Conta Especial", "Conta Empresa", "Conta Estudantil","Sair"}
-	inteiro opcao
 	caracter opcaoLetra
 	inteiro hoje
->>>>>>> f6528863df6b9d1e11ae44a6339363a2580bbd79
+
 	
 	funcao inicio()
 	{
@@ -35,11 +28,6 @@ programa
 		escreva("\t\t\t\tSomos o G6, venha fazer parte!\n")
 		escreva("\t\t\t\t°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
 		Util.aguarde(3000)
-		
-<<<<<<< HEAD
-		
-=======
->>>>>>> f6528863df6b9d1e11ae44a6339363a2580bbd79
 		limpa()
 		menu()
 			
@@ -51,7 +39,7 @@ programa
 			escreva("\tG6 Bank\n\n")
 
 			para(inteiro x=1; x<7; x++){
-			escreva(x+" - " + bancoG6[x] + "\n")
+			escreva(x+" - " + bancog6[x] + "\n")
 		}    
 			escreva("Digite uma opção : \n")
 			leia(opcao)
@@ -89,7 +77,6 @@ programa
 				limpa()
 			
 		}
-<<<<<<< HEAD
 
 		funcao extrato(){
 			
@@ -139,17 +126,11 @@ programa
                               	
                               }
 				}
-		}
-		}
-		funcao contaCorente(){
-			
-=======
-		funcao contaPoupanca(){
-			escreva("Bem vinde a Conta Poupança G6")
-			
+		
+			}
 		}
 		funcao contaCorrente(){
-			escreva("Bem vinde a Conta Corente G6\n")
+			escreva("Bem vinde a Conta Corrente G6\n")
 			para(inteiro x=0; x<10; x++){
 			escreva ("Digite uma opção : \n")
 			escreva ("1 - Saldo\n2 - Débito\n3 - Crédito\n4 - Voltar ao Menu\n")
@@ -229,7 +210,7 @@ programa
 			limpa()
 			escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
 			Util.aguarde(3000)
->>>>>>> f6528863df6b9d1e11ae44a6339363a2580bbd79
+
 		}
 		funcao contaEspecial(){
 			escreva("Bem vinde a Conta Especial G6")
@@ -289,11 +270,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
-<<<<<<< HEAD
- * @POSICAO-CURSOR = 3316; 
-=======
- * @POSICAO-CURSOR = 4493; 
->>>>>>> f6528863df6b9d1e11ae44a6339363a2580bbd79
+ * @POSICAO-CURSOR = 3283; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
