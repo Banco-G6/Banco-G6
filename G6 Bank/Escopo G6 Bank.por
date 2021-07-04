@@ -83,7 +83,7 @@ programa
 		}
 
 		funcao contaPoupanca(){
-			para(saldo = 0; saldo <= 10; saldo++) {
+			para(saldo = 0.00; saldo <= 10; saldo++) {
 				//escreva("Seu saldo atual é de R$: ", saldo, "\n")
 				escreva("Antes de prosseguirmos, digite o dia em que sua conta foi criada...")
 				leia(anivconta)
@@ -130,8 +130,9 @@ programa
 			}
 		}
 		funcao contaCorrente(){
-			escreva("Bem vinde a Conta Corrente G6\n")
-			para(inteiro x=0; x<10; x++){
+			inteiro quantidadeTalao=0
+			escreva("Bem vinde a Conta Corente G6\n")
+			para(inteiro x=1; x<=10; x=x+1){
 			escreva ("Digite uma opção : \n")
 			escreva ("1 - Saldo\n2 - Débito\n3 - Crédito\n4 - Voltar ao Menu\n")
 			leia(opcao)
@@ -168,13 +169,35 @@ programa
 						se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
 							escreva ("Voltar ao menu [S / N] ? \n")
 							leia(opcaoLetra)
-			     			se (opcaoLetra == 'S' ou opcaoLetra == 's'){
-								menu()
-							} senao {
-								limpa()
-								escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-								Util.aguarde(3000)
-								pare
+							se (opcaoLetra == 'S' ou opcaoLetra == 's'){
+								se (quantidadeTalao <3){
+									escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+									escreva("A cada talão a conta será debitada em 30.00 reais.\n") 
+									leia(opcaoLetra)
+									se(opcaoLetra =='s' ou opcaoLetra == 'S'){
+									   se (saldo<30){
+											escreva("Você não tem saldo suficiente para essa operação.")
+											Util.aguarde(2000)
+											menu()
+												}
+										senao{
+											saldo-=30.00
+											quantidadeTalao++
+											escreva("Parabéns pela escolha!\n")
+											escreva("Seu saldo atual é de ", saldo, " reais.")
+											Util.aguarde(2000)
+											menu()}
+									}senao{
+										menu()
+									}
+								}senao {
+									menu()
+								}
+						} senao {
+							limpa()
+							escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+							Util.aguarde(3000)
+							pare
 									}
 								}
 							}
@@ -187,30 +210,116 @@ programa
 					escreva("Seu saldo atual é ", saldo," reais. \n")
 					escreva("Deseja fazer outra operação na Conta Corrente [S / N] ?\n")
 					leia(opcaoLetra)
-					se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
+				se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
 					escreva ("Voltar ao menu [S / N] ? \n")
 					leia(opcaoLetra)
 				     	se (opcaoLetra == 'S' ou opcaoLetra == 's'){
-						menu()
-						} senao {
+								se(quantidadeTalao<3){
+								escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+								escreva("A cada talão a conta será debitada em 30.00 reais\n") 
+								leia(opcaoLetra)
+									se(opcaoLetra=='S' ou opcaoLetra == 's'){
+										se (saldo<30.00){
+											limpa()
+											escreva("Você não tem saldo suficiente para essa operação.")
+											Util.aguarde(2000)
+											menu()
+	
+												}
+										senao{
+											saldo-=30.00
+											quantidadeTalao++
+											escreva("Parabéns pela escolha!\n")
+											escreva("Seu saldo atual é de ", saldo, " reais.")
+										     Util.aguarde(2000)
+										     menu()
+								        	}
+									
+								    }senao{
+								   	menu()	}
+							}senao{
+								menu()
+									}
+						}senao{
+							limpa()
+							escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+							Util.aguarde(3000)
+							pare
+						}
+					} 
+			
+			se (opcao == 4){
+				se(quantidadeTalao<3){
+					escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
+					leia(opcaoLetra)
+						se(opcaoLetra=='S' ou opcaoLetra == 's'){
+							se(saldo<30){
+								limpa()
+								escreva("Você não tem saldo suficiente para essa operação.")
+								Util.aguarde(2000)
+								menu()
+							}senao{
+								saldo-=30.00
+								quantidadeTalao++
+								escreva("Parabéns pela escolha!\n")
+								escreva("Seu saldo atual é de ", saldo, " reais.")}
+						
+						}senao{
+						   menu()
+						}
+				}	
+			}
+					
+				
+			se ((x==3 ou x==6 ou x==9) e quantidadeTalao<3){
+				escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+				escreva("A cada talão a conta será debitada em 30.00 reais\n") 
+				leia(opcaoLetra)
+					se(opcaoLetra=='S' ou opcaoLetra == 's'){
+						saldo-=30.00
+						quantidadeTalao++
+						escreva("Parabéns pela escolha!\n")
+						escreva("Seu saldo atual é de ", saldo, " reais.\n")
+					}senao{
+						escreva("Deseja fazer outra operação na Conta Corrente [S / N] ?\n")
+						leia(opcaoLetra)
+							se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
+								escreva ("Voltar ao menu [S / N] ? \n")
+								leia(opcaoLetra)
+			     				se (opcaoLetra == 'S' ou opcaoLetra == 's'){
+									menu()
+								} senao {
+									limpa()
+									escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+									Util.aguarde(3000)
+									}
+								}
+							}
+			}
+			
+			se(x==10){
+			escreva("Você chegou ao limite de movimentações da Conta Corrente")
+			Util.aguarde(2000)
+			se(quantidadeTalao<3){
+			escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
+					leia(opcaoLetra) 
+					}
+					se(opcaoLetra=='S' ou opcaoLetra == 's'){
+						saldo-=30.00
+						quantidadeTalao++
+						escreva("Parabéns pela escolha!\n")
+						escreva("Seu saldo atual é de ", saldo, " reais.")
+					}senao{
 						limpa()
 						escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
 						Util.aguarde(3000)
-						pare
-					}
-				}
-			se (opcao == 4){
-				menu()
 						}
 					}
 				}
 			}
-			escreva("Você chegou ao limite de movimentações da Conta Corrente")
-			Util.aguarde(2000)
-			limpa()
-			escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-			Util.aguarde(3000)
-
+		}
 		}
 		funcao contaEspecial(){
 			escreva("Bem vinde a Conta Especial G6")
@@ -348,7 +457,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 9821; 
+ * @POSICAO-CURSOR = 1552; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
