@@ -195,15 +195,16 @@ programa
 				}
 			
 		}
+		
 		funcao contaCorrente(){
+			limpa()
 			inteiro quantidadeTalao=0
-				escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
-				escreva("Bem vinde a Conta Corrente G6! \n")
-				escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
-				Util.aguarde(1500)
-				limpa()
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			escreva("Bem vinde a Conta Corrente G6! \n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			Util.aguarde(1500)
 			para(inteiro x=1; x<=10; x=x+1){
-			escreva ("Sua contagem de movimentações são: ", x, "\n")
+			limpa()
 			escreva ("Digite uma opção : \n")
 			escreva ("1 - Saldo\n2 - Débito\n3 - Crédito\n4 - Voltar ao Menu\n  \n")
 			leia(opcao)
@@ -233,8 +234,9 @@ programa
 				se(valor > saldo){
 					escreva("Seu saldo é de apenas ", saldo, " reais.\n")
 					escreva("Não é possível sacar ", valor, " reais. \n")	
-				} senao se (valor == 0 e valor<0){
+				} senao se (valor == 0 ou valor<0){
 					escreva("Valor inválido. \n")
+					Util.aguarde(2000)
 				} senao {
 					saldo-=valor
 					escreva("Seu saldo atual é de ", saldo, " reais. ")
@@ -301,7 +303,7 @@ programa
 					leia(opcaoLetra)
 				     	se (opcaoLetra == 'S' ou opcaoLetra == 's'){
 								se(quantidadeTalao<3){
-								escreva("Há ", 3-quantidadeTalao," disponivéis. Deseja fazer o uso [S / N] ? \n")
+								escreva("Há ", 3-quantidadeTalao," talões de cheque disponivéis. Deseja fazer o uso [S / N] ? \n")
 								escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 								leia(opcaoLetra)
 									se(opcaoLetra=='S' ou opcaoLetra == 's'){
@@ -340,11 +342,15 @@ programa
 							pare
 						}
 					} 
-			
+				}senao{
+					escreva("Valor inválido.")
+					Util.aguarde(2000)
+				}
+			}
 			se (opcao == 4){
 				limpa()
 				se(quantidadeTalao<3){
-					escreva("Há ", 3-quantidadeTalao," disponivéis. Deseja fazer o uso [S / N] ? \n")
+					escreva("Há ", 3-quantidadeTalao," talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
 					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 					leia(opcaoLetra)
 						se(opcaoLetra=='S' ou opcaoLetra == 's'){
@@ -354,7 +360,7 @@ programa
 								Util.aguarde(2000)
 								menu()
 							}senao{
-								escreva("Quantos cheques deseja ?")
+								escreva("Quantos cheques deseja ?\n")
 								leia(opcao)
 								se(saldo<(30.00*opcao)){
 									limpa()
@@ -414,9 +420,9 @@ programa
 						Util.aguarde(3000)
 						}
 					}
-				}
+				
 			}
-		}
+		
 		}
 		funcao contaEspecial(){
 			limpa()
@@ -785,11 +791,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
-<<<<<<< HEAD
- * @POSICAO-CURSOR = 2750; 
-=======
- * @POSICAO-CURSOR = 19982; 
->>>>>>> 3af69f47ec33890032b193b623ef28879d2a059b
+ * @POSICAO-CURSOR = 6035; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
