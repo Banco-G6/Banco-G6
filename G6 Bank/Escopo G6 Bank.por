@@ -15,7 +15,6 @@ programa
 	caracter opletra
 	caracter opcaoLetra
 	inteiro hoje
-
 	
 	funcao inicio()
 	{
@@ -519,74 +518,68 @@ programa
 					}
 				}
 		}
+		funcao inteiro emprestimoEmpresa (inteiro emprestimo){
+			inteiro limite=10000
+			escreva("Valor de empréstimo disponível: ",limite," reais. \n  Deseja realizar um empréstimo [S / N] ?: \n")
+			leia(opcaoLetra)
+			se (opcaoLetra == 'S' ou opcaoLetra == 's'){
+					se(saldo<limite){
+						saldo+=emprestimo
+					limite-=emprestimo
+					retorne(saldo+emprestimo)
+					}
+				} 
+				retorne 0
+			}
 		funcao contaEmpresa(){
 			inteiro emprestimo=0
-			real limite=10.000
-			para (inteiro x=1; x<=10; x++){
-			escreva ("Sua contagem de movimentações são: ", x, "\n")
-			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
-			escreva("Bem vinde a Conta Empresa G6! \n")
-			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
-			Util.aguarde(1500)
-			limpa()
+			inteiro limite=10000
+			inteiro saldoTemp=0
+			inteiro j =0
+			para (inteiro i=1; i<=10; i++){
+				j=0
 			escreva("Bem vinde a Conta Empresa G6")
 			escreva("\nSeu saldo atual é de: "+saldo+" reais. \n")
 			escreva("Digite uma opção : \n")
 			escreva ("1 -Fazer um empréstimo\n2 - Voltar ao menu\n")
 			leia(opcao)
 			se (opcao == 1){
-				escreva("Valor de empréstimo disponível: ", limite, "reais. \n  Deseja realizar um empréstimo [S / N] ?: \n")
-				leia(opcaoLetra)
-				se (opcaoLetra == 'S'ou opcaoLetra == 's'){
-					escreva ("Digite o valor que deseja: ")
-					leia(limite)
-					se(limite>emprestimo e (limite > 0 e limite <= 10000)){
-						emprestimo+=limite
-						escreva ("Empréstimo concluído ! \nValor atual de saldo: " ,saldo+emprestimo, " em sua conta G6!\n")}
-						se (emprestimo <10000){
-							escreva("Deseja realizar outra operação na Conta Empresa [S / N] ? ")
-							leia(opcao)
-						 	}se(opcaoLetra =='n' ou opcaoLetra == 'N'){
-						 		escreva("Voltar ao menu [ S / N ]?")
-						 		leia(opcao)
-						 		}se(opcaoLetra == 's' ou opcaoLetra == 'S'){
-						 			menu()
-						 		}senao{
-						 			limpa()
-									escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-									Util.aguarde(3000)
-						 		}
-				} senao {
-					escreva("Deseja realizar outra operação na Conta Empresa [S / N] ? ")
-					leia(opcao)
-					}se(opcaoLetra =='n' ou opcaoLetra == 'N'){
-						 escreva("Voltar ao menu [ S / N ]?")
-						 leia(opcao)
-						}se(opcaoLetra == 's' ou opcaoLetra == 'S'){
-						 	menu()
-						}senao{
-						 	limpa()
-							escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-							Util.aguarde(3000)
-				}
+				escreva ("Digite o valor que deseja: ")
+					leia(emprestimo)
+				se (emprestimo<=limite){
+					saldoTemp= emprestimoEmpresa(emprestimo)
+				escreva ("Empréstimo concluído ! \nValor atual de saldo: " ,saldo, " em sua conta G6!\n")
+					}senao {
+					escreva("Não é possivel retirar este valor \n")
+					escreva("Gostaria de tentar um valor menor? [S / N]\n")
+					leia(opcaoLetra)
+					se (opcaoLetra== 'S' ou opcaoLetra== 's'){
+						enquanto(emprestimo>limite e (opcaoLetra == 'S' ou opcaoLetra == 's')){
+					se (j>=1){
+						escreva("Gostaria de tentar um valor menor? [S/N]\n")
+						leia(opcaoLetra)
+						}
+					se(opcaoLetra=='S' ou opcaoLetra=='s'){
+						escreva("Digite o valor que deseja: \n")
+						leia(emprestimo)
+					}
+						j++
+					}
+				} 
 			}
+		}
 			se(opcao==2){
 				limpa()
 				menu()
 				}
-			}
-			escreva("Você chegou ao limite de movimentações da Conta Empresa")
+			se(i==10){
+				escreva("Você chegou ao limite de movimentações da Conta Empresa \n")
 	          Util.aguarde(2000)
-	          escreva("Você gostaria de um empréstimo?: ")
-	          leia(opcao)
-	          se(opcao == 1){
-	          	saldo=saldo+emprestimo
-	          	escreva("Seu saldo atual é de: "+saldo)
-	          }senao {
 	          	limpa()
 	          	escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
 	          	Util.aguarde(3000)	
-				}
+	          	}
+			}
 		}
 		funcao contaEstudantil(){
 			inteiro valorCredito=5000
@@ -791,7 +784,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6035; 
+ * @POSICAO-CURSOR = 16025; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
