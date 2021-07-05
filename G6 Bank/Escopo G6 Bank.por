@@ -88,66 +88,69 @@ programa
 					escreva("Parabéns! \n")
 					escreva("Seu saldo foi aumentado em 0,05%! \n")
 					saldo+= (saldo* 0.05)
-					escreva("Seu novo saldo a partir de hoje é:" + saldo, "\n")
+					escreva("Seu novo saldo a partir de hoje é:" + saldo, " reais. \n")
 				}senao{
 					escreva("Seu saldo infelizmente não foi premiado hoje \n")}
 				
 				
 			para(inteiro x = 0; x <= 10; x++) {
 				escreva("Digite uma opção : \n")
-				escreva("\n1- Crédito \n2- Débito \n3- Saldo")
-				leia(opcaoLetra)
-                    se(opcaoLetra == '1'){
+				escreva("\n1- Crédito \n2- Débito \n3- Saldo \n")
+				leia(opcao)
+                    se(opcao == 1){
                     	limpa()
                     	escreva("Digite o valor do crédito : \n")
                     	leia(valor)
                     	se(valor > 0){
-                    	credito = (saldo + valor)
-                    	escreva("Seu saldo atual é de: ", credito, "\n")
-                    	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ?")
+                    	saldo+=valor
+                    	escreva("Seu saldo atual é de: ", valor, "\n")
+                    	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ? \n")
                     	leia(opcaoLetra)
-                    		se (opcaoLetra=='n' ou opcaoLetra == 'N'){
-                    			limpa()
-                    			escreva("Voltar ao menu [ S / N ]?")
-                    			leia(opcaoLetra)
-                    			}se(opcaoLetra == 'S' ou opcaoLetra == 's'){
-                    				menu()
-                    			}senao{
-                    				limpa()
-								escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-								Util.aguarde(3000)
-								pare}
+                    	se (opcaoLetra=='n' ou opcaoLetra == 'N'){
+                    		limpa()
+                    		escreva("Voltar ao menu [ S / N ] ? \n")
+                    		leia(opcaoLetra)
+                    			se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+                    			menu()
+                    		}	senao se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
+                   				limpa()
+							escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+							Util.aguarde(3000)
+							pare}
+							}
                     	}senao{
                          	escreva("Valor inválido")
                          }
                              
 				
-                    }se(opcao==2){
+                    }
+                    se(opcao==2){
                     	limpa()
 					escreva("Seu saldo atual é de : ", saldo, " reais.\n")
 					escreva("\nDigite o valor do débito : \n")
 					leia(valor)
-					se(valor > saldo e valor >0 ){
-							escreva("Não é possível debitar ", valor, " reais.")
-                              	escreva("Seu saldo é de apenas ", saldo, " reais. ")
-                              }
-             		     senao{
-                              	saldo= saldo - valor 
-                              	escreva("Seu saldo atual é de ", saldo, " reais.")
-                              	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ?")
-                              	leia(opcaoLetra)
-                            	  	}se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
-                            	  		limpa()
-                              		escreva("Voltar ao menu [ S / N ]?")
-                    				leia(opcaoLetra)
-                              		}se(opcaoLetra == 'S' ou opcaoLetra == 's'){
-                    					menu()
-                              		}senao{
-                              			limpa()
-									escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-									Util.aguarde(3000)
-									pare
-									}
+					se(valor > saldo ou valor<0){
+						escreva("Não é possível debitar ", valor, " reais.")
+                         	escreva("Seu saldo é de apenas ", saldo, " reais. ")
+                         	Util.aguarde(2000)
+				     }senao se(saldo>valor)
+				     {
+	                    	saldo-= valor 
+	                    	escreva("Seu saldo atual é de ", saldo, " reais.")
+	                    	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ?")
+	                    	leia(opcaoLetra)
+	                  	  	} se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
+	                  	  		limpa()
+	                    		escreva("Voltar ao menu [ S / N ]?")
+	          				leia(opcaoLetra)
+	                    		} se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+	          					menu()
+	                    		}senao se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
+	                    			limpa()
+								escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+								Util.aguarde(3000)
+								pare
+								}
                	}se(opcao==3){
                		limpa()
                		escreva("Seu saldo atual é de ", saldo, " reais.")
@@ -158,14 +161,15 @@ programa
                				limpa()
                     			escreva("Voltar ao menu [ S / N ]?")
                				leia(opcaoLetra)
-                         		}se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+                         		se(opcaoLetra == 'S' ou opcaoLetra == 's'){
                					menu()
-                         		}senao{
+                         		}senao se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
                          			limpa()
 								escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
 								Util.aguarde(3000)
 								pare
 								}
+               		}
 				
 				
                     
@@ -177,7 +181,7 @@ programa
 			leia(opcaoLetra)
      		se(opcaoLetra == 'S' ou opcaoLetra == 's'){
 				menu()
-     		}senao{
+     		}senao se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
      			limpa()
 				escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
 				Util.aguarde(3000)
@@ -189,7 +193,7 @@ programa
 			escreva("Bem vinde a Conta Corrente G6\n")
 			para(inteiro x=1; x<=10; x=x+1){
 			escreva ("Digite uma opção : \n")
-			escreva ("1 - Saldo\n2 - Débito\n3 - Crédito\n4 - Voltar ao Menu\n")
+			escreva ("1 - Saldo\n2 - Débito\n3 - Crédito\n4 - Voltar ao Menu\n  \n")
 			leia(opcao)
 			se (opcao == 1){
 				limpa()
@@ -214,7 +218,6 @@ programa
 				limpa()
 				escreva ("Digite o valor do débito : \n")
 				leia(valor)
-				limpa()
 				se(valor > saldo){
 					escreva("Seu saldo é de apenas ", saldo, " reais.\n")
 					escreva("Não é possível sacar ", valor, " reais. \n")	
@@ -230,23 +233,34 @@ programa
 							leia(opcaoLetra)
 							se (opcaoLetra == 'S' ou opcaoLetra == 's'){
 								se (quantidadeTalao <3){
-									escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+									limpa()
+									escreva("Há ", 3-quantidadeTalao," talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
 									escreva("A cada talão a conta será debitada em 30.00 reais.\n") 
 									leia(opcaoLetra)
 									se(opcaoLetra =='s' ou opcaoLetra == 'S'){
 									   se (saldo<30){
+									   		limpa()
 											escreva("Você não tem saldo suficiente para essa operação.")
 											Util.aguarde(2000)
 											menu()
 												}
 										senao{
-											saldo-=30.00
-											quantidadeTalao++
-											escreva("Parabéns pela escolha!\n")
-											escreva("Seu saldo atual é de ", saldo, " reais.")
-											Util.aguarde(2000)
-											menu()}
-									}senao{
+											escreva("Quantos cheques deseja ?")
+											leia(opcao)
+											se(saldo<(30.00*opcao)){
+												limpa()
+												escreva("Você não tem saldo suficiente para essa operação.")
+												Util.aguarde(2000)
+												limpa()
+											} senao {
+												saldo-=30.00*opcao
+												quantidadeTalao+=opcao
+												escreva("Parabéns pela escolha!\n")
+												escreva("Seu saldo atual é de ", saldo, " reais.")
+												Util.aguarde(2000)
+												menu()}
+										}
+										}senao{
 										menu()
 									}
 								}senao {
@@ -275,7 +289,7 @@ programa
 					leia(opcaoLetra)
 				     	se (opcaoLetra == 'S' ou opcaoLetra == 's'){
 								se(quantidadeTalao<3){
-								escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+								escreva("Há ", 3-quantidadeTalao," disponivéis. Deseja fazer o uso [S / N] ? \n")
 								escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 								leia(opcaoLetra)
 									se(opcaoLetra=='S' ou opcaoLetra == 's'){
@@ -287,12 +301,19 @@ programa
 	
 												}
 										senao{
-											saldo-=30.00
-											quantidadeTalao++
-											escreva("Parabéns pela escolha!\n")
-											escreva("Seu saldo atual é de ", saldo, " reais.")
-										     Util.aguarde(2000)
-										     menu()
+											escreva("Quantos cheques deseja ?")
+											leia(opcao)
+											se(saldo<(30.00*opcao)){
+												escreva("Você não tem saldo suficiente para essa operação.")
+												Util.aguarde(2000)
+												limpa()
+											} senao {
+												saldo-=30.00*opcao
+												quantidadeTalao+=opcao
+												escreva("Parabéns pela escolha!\n")
+												escreva("Seu saldo atual é de ", saldo, " reais.")
+												Util.aguarde(2000)
+												menu()}
 								        	}
 									
 								    }senao{
@@ -311,7 +332,7 @@ programa
 			se (opcao == 4){
 				limpa()
 				se(quantidadeTalao<3){
-					escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+					escreva("Há ", 3-quantidadeTalao," disponivéis. Deseja fazer o uso [S / N] ? \n")
 					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 					leia(opcaoLetra)
 						se(opcaoLetra=='S' ou opcaoLetra == 's'){
@@ -321,59 +342,60 @@ programa
 								Util.aguarde(2000)
 								menu()
 							}senao{
-								saldo-=30.00
-								quantidadeTalao++
-								escreva("Parabéns pela escolha!\n")
-								escreva("Seu saldo atual é de ", saldo, " reais.")}
+								escreva("Quantos cheques deseja ?")
+								leia(opcao)
+								se(saldo<(30.00*opcao)){
+									limpa()
+									escreva("Você não tem saldo suficiente para essa operação.")
+									Util.aguarde(2000)
+									limpa()
+								} senao {
+									limpa()
+									saldo-=30.00*opcao
+									quantidadeTalao+=opcao
+									escreva("Parabéns pela escolha!\n")
+									escreva("Seu saldo atual é de ", saldo, " reais.")
+									Util.aguarde(2000)
+									menu()}
+								        	}
 						
 						}senao{
 						   menu()
 						}
 				}	
 			}
-					
-				
-			se ((x==3 ou x==6 ou x==9) e quantidadeTalao<3){
-				limpa()
-				escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
-				escreva("A cada talão a conta será debitada em 30.00 reais\n") 
-				leia(opcaoLetra)
-					se(opcaoLetra=='S' ou opcaoLetra == 's'){
-						saldo-=30.00
-						quantidadeTalao++
-						escreva("Parabéns pela escolha!\n")
-						escreva("Seu saldo atual é de ", saldo, " reais.\n")
-					}senao{
-						escreva("Deseja fazer outra operação na Conta Corrente [S / N] ?\n")
-						leia(opcaoLetra)
-							se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
-								escreva ("Voltar ao menu [S / N] ? \n")
-								leia(opcaoLetra)
-			     				se (opcaoLetra == 'S' ou opcaoLetra == 's'){
-									menu()
-								} senao {
-									limpa()
-									escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-									Util.aguarde(3000)
-									}
-								}
-							}
-			}
-			
 			se(x==10){
 				limpa()
 				escreva("Você chegou ao limite de movimentações da Conta Corrente")
 				Util.aguarde(2000)
 				se(quantidadeTalao<3){
-					escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+					escreva("Há ", 3-quantidadeTalao," disponivéis. Deseja fazer o uso [S / N] ? \n")
 					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 					leia(opcaoLetra) 
 					}
 					se(opcaoLetra=='S' ou opcaoLetra == 's'){
-						saldo-=30.00
-						quantidadeTalao++
-						escreva("Parabéns pela escolha!\n")
-						escreva("Seu saldo atual é de ", saldo, " reais.")
+						se(saldo<30){
+							limpa()
+							escreva("Você não tem saldo suficiente para essa operação.")
+							Util.aguarde(2000)
+							menu()
+						}senao{
+							escreva("Quantos cheques deseja ?")
+							leia(opcao)
+							se(saldo<(30.00*opcao)){
+								limpa()
+								escreva("Você não tem saldo suficiente para essa operação.")
+								Util.aguarde(2000)
+								limpa()
+							} senao {
+								limpa()
+								saldo-=30.00*opcao
+								quantidadeTalao+=opcao
+								escreva("Parabéns pela escolha!\n")
+								escreva("Seu saldo atual é de ", saldo, " reais.")
+								Util.aguarde(2000)
+								menu()}
+								        	}
 					}senao{
 						limpa()
 						escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
@@ -544,7 +566,7 @@ programa
 			escreva ("Seu saldo atual é de "+saldo+" reais \n")
 					escreva ("Qual valor deseja: \n")
 					leia(valor)
-					escreva ("\n1- para debito 2- para crédito 3-Voltar Ao menu principal")
+					escreva ("\n1- para debito \n2- para crédito \n3-Voltar ao menu")
 					leia(opcao)
 					debito=(saldo-valor)
 					credito=(saldo+valor)
@@ -622,7 +644,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 12180; 
+ * @POSICAO-CURSOR = 17331; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
