@@ -385,14 +385,16 @@ programa
 		}
 		}
 		funcao contaEspecial(){
+			limpa()
 			inteiro usarLimite = 0
 			inteiro limite = 1000
 			real variavelExtra = 0.00
-			escreva("Bem vinde a Conta Corente G6\n")
+			escreva("Bem vinde a Conta Especial G6\n")
 			para(inteiro x=0; x<=9; x++){
 			escreva ("Digite uma opção : \n")
 			escreva ("1 - Saldo\n2 - Débito e Crédito\n3 - Voltar ao Menu\n")
 			leia(opcao)
+			limpa()
 			se (opcao == 1){
 				escreva("Seu saldo é de : ", saldo, " reais. \n")
 				se(limite >=0){
@@ -400,30 +402,34 @@ programa
 				}
 				escreva("Deseja fazer outra operação na Conta Especial [S / N] ?", " ")
 				leia(opcaoLetra)
-				se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
-					escreva ("Voltar ao menu [S / N] ? \n")
-					leia(opcaoLetra)
-				     	se (opcaoLetra == 'S' ou opcaoLetra == 's'){
-						menu()
-						} senao {
-						limpa()
-						escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-						Util.aguarde(3000)
-						pare
-						}
+				limpa()
+					 se(opcaoLetra == 'n'ou opcaoLetra == 'N'){
+						escreva ("Voltar ao menu [S / N] ? \n")
+						leia(opcaoLetra)
+				     		se (opcaoLetra == 'S' ou opcaoLetra == 's'){
+				     			menu()
+						
+					 }senao{
+					limpa()
+					escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+					Util.aguarde(3000)
+					limpa()
+					pare
 					}
-			}
-			senao se (opcao == 2){
+				}
+		}
+				senao se (opcao == 2){
 				escreva("\nDeseja fazer Crédito ou Débito [C / D] ?", " ")
 				leia(opcaoLetra)
 				se(opcaoLetra == 'C' ou opcaoLetra=='c'){
-				escreva ("\nDigite o valor do crédito : \n")
+				escreva ("\nDigite o valor do crédito : ", " ")
 				leia(valor)
 				saldo+=valor
 				escreva("Saldo atualizado: " ,saldo, " Reais", "\n")
 				}senao se(opcaoLetra== 'D' ou opcaoLetra== 'd'){
 					escreva("\nQual do valor do Débito?", " : ")
 					leia(valor)
+					escreva("Saldo atualizado: " ,saldo, " Reais", "\n")
 				se(valor<=0){
 					escreva("\nO valor digitado foi menor ou igual a zero, tente novamente")
 				}senao se(valor > saldo+limite){
@@ -616,7 +622,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 15766; 
+ * @POSICAO-CURSOR = 12180; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
