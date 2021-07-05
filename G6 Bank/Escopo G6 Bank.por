@@ -4,7 +4,7 @@ programa
      
 	real saldo=0.00
 	real valor 
-	real anivconta
+	real anivconta = 25.00
 	real contapresente = 25.00 
 	real newsaldo = 0.00
 	real credito = 0.00
@@ -64,7 +64,9 @@ programa
 				pare
 				caso 6:
 				limpa()
-				escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+				escreva("\t\t\t\t°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+				escreva("\t\t\t\tObrigado por usar o G6 Bank!\n")
+				escreva("\t\t\t\t°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
 				Util.aguarde(3000)
 				pare
 				caso contrario:
@@ -78,10 +80,14 @@ programa
 			
 		}
 		funcao contaPoupanca(){
-				escreva("Bem vinde a Conta Poupança G6")
-				Util.aguarde(1000)
+				escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+				escreva("Bem vinde a Conta Poupança G6! \n")
+				escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+				Util.aguarde(1500)
 				limpa()
-				escreva("Antes de prosseguirmos, digite o dia em que sua conta foi criada...")
+				escreva("Digite o dia atual...\n")
+				leia(diatual)
+				escreva("Antes de prosseguirmos, digite o aniversário da sua conta... \n")
 				leia(anivconta)
 				
 				se(anivconta == contapresente) {
@@ -94,6 +100,7 @@ programa
 				
 				
 			para(inteiro x = 0; x <= 10; x++) {
+				escreva ("Sua contagem de movimentações são: ", x, "\n")
 				escreva("Digite uma opção : \n")
 				escreva("\n1- Crédito \n2- Débito \n3- Saldo \n")
 				leia(opcao)
@@ -103,7 +110,7 @@ programa
                     	leia(valor)
                     	se(valor > 0){
                     	saldo+=valor
-                    	escreva("Seu saldo atual é de: ", valor, "\n")
+                    	escreva("Seu saldo atual é de: ", saldo, "\n")
                     	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ? \n")
                     	leia(opcaoLetra)
                     	se (opcaoLetra=='n' ou opcaoLetra == 'N'){
@@ -190,8 +197,13 @@ programa
 		}
 		funcao contaCorrente(){
 			inteiro quantidadeTalao=0
-			escreva("Bem vinde a Conta Corrente G6\n")
+				escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+				escreva("Bem vinde a Conta Corrente G6! \n")
+				escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+				Util.aguarde(1500)
+				limpa()
 			para(inteiro x=1; x<=10; x=x+1){
+			escreva ("Sua contagem de movimentações são: ", x, "\n")
 			escreva ("Digite uma opção : \n")
 			escreva ("1 - Saldo\n2 - Débito\n3 - Crédito\n4 - Voltar ao Menu\n  \n")
 			leia(opcao)
@@ -411,8 +423,14 @@ programa
 			inteiro usarLimite = 0
 			inteiro limite = 1000
 			real variavelExtra = 0.00
-			escreva("Bem vinde a Conta Especial G6\n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			escreva("Bem vinde a Conta Especial G6 \n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			Util.aguarde(1500)
+			limpa()
+			
 			para(inteiro x=0; x<=9; x++){
+			escreva ("Sua contagem de movimentações são: ", x, "\n")
 			escreva ("Digite uma opção : \n")
 			escreva ("1 - Saldo\n2 - Débito e Crédito\n3 - Voltar ao Menu\n")
 			leia(opcao)
@@ -497,7 +515,13 @@ programa
 		funcao contaEmpresa(){
 			inteiro emprestimo=0
 			real limite=10.000
-			para (inteiro i=1; i<=10; i++){
+			para (inteiro x=1; x<=10; x++){
+			escreva ("Sua contagem de movimentações são: ", x, "\n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			escreva("Bem vinde a Conta Empresa G6! \n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			Util.aguarde(1500)
+			limpa()
 			escreva("Bem vinde a Conta Empresa G6")
 			escreva("\nSeu saldo atual é de: "+saldo+" reais. \n")
 			escreva("Digite uma opção : \n")
@@ -560,9 +584,14 @@ programa
 		funcao contaEstudantil(){
 			inteiro valorCredito
 			caracter s
-			para ( inteiro c=1;c<=10; c++){
-			
-			escreva("Bem vinde a Conta Estudantil G6\n")
+			para ( inteiro x=1;x<=10; x++){
+			escreva ("Sua contagem de movimentações são: ", x, "\n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			escreva("Bem vinde a Conta Estudantil G6! \n")
+			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
+			Util.aguarde(1500)
+			limpa()
+		
 			escreva ("Seu saldo atual é de "+saldo+" reais \n")
 					escreva ("Qual valor deseja: \n")
 					leia(valor)
@@ -644,7 +673,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 17331; 
+ * @POSICAO-CURSOR = 2750; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
