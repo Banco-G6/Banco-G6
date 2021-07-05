@@ -78,51 +78,111 @@ programa
 			
 		}
 		funcao contaPoupanca(){
-			para(saldo = 0.00; saldo <= 10; saldo++) {
-				//escreva("Seu saldo atual é de R$: ", saldo, "\n")
+				escreva("Bem vinde a Conta Poupança G6")
+				Util.aguarde(1000)
+				limpa()
 				escreva("Antes de prosseguirmos, digite o dia em que sua conta foi criada...")
 				leia(anivconta)
 				
 				se(anivconta == contapresente) {
-				escreva("Parabéns! \n")
-				escreva("Seu saldo foi aumentado em 0,05%! \n")
-				escreva("Seu novo saldo a partir de hoje é:" + newsaldo, "\n")
-				newsaldo =  saldo + (saldo* 0.05)
-
-						escreva("Deseja algum valor?")
-						leia(valor)
-						escreva("\n1- Crédito ou 2- Débito")
-						leia(opletra)
-                              se(opletra == '1'){
-                              	credito = (newsaldo + valor)
-                              	escreva("Seu saldo atual é de: ", credito, "\n")
-                              }
-                              senao{
-                              	debito = (newsaldo - valor)
-                              	escreva("Seu saldo atual é de: ", debito, "\n")
-                              	
-                              }
+					escreva("Parabéns! \n")
+					escreva("Seu saldo foi aumentado em 0,05%! \n")
+					saldo+= (saldo* 0.05)
+					escreva("Seu novo saldo a partir de hoje é:" + saldo, "\n")
+				}senao{
+					escreva("Seu saldo infelizmente não foi premiado hoje \n")}
 				
-				}
-				senao{
-					escreva("Seu Saldo infelizmente não foi premiado hoje \n")
 				
-						escreva("Deseja algum valor?")
-						leia(valor)
-						escreva("\n1- Crédito ou 2- Débito")
-						leia(opletra)
-                              se(opletra == '1'){
-                              	credito = (saldo + valor)
-                              	escreva("Seu saldo atual é de: ", credito, "\n")
+			para(inteiro x = 0; x <= 10; x++) {
+				escreva("Digite uma opção : \n")
+				escreva("\n1- Crédito \n2- Débito \n3- Saldo")
+				leia(opcaoLetra)
+                    se(opcaoLetra == '1'){
+                    	limpa()
+                    	escreva("Digite o valor do crédito : \n")
+                    	leia(valor)
+                    	se(valor > 0){
+                    	credito = (saldo + valor)
+                    	escreva("Seu saldo atual é de: ", credito, "\n")
+                    	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ?")
+                    	leia(opcaoLetra)
+                    		se (opcaoLetra=='n' ou opcaoLetra == 'N'){
+                    			limpa()
+                    			escreva("Voltar ao menu [ S / N ]?")
+                    			leia(opcaoLetra)
+                    			}se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+                    				menu()
+                    			}senao{
+                    				limpa()
+								escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+								Util.aguarde(3000)
+								pare}
+                    	}senao{
+                         	escreva("Valor inválido")
+                         }
+                             
+				
+                    }se(opcao==2){
+                    	limpa()
+					escreva("Seu saldo atual é de : ", saldo, " reais.\n")
+					escreva("\nDigite o valor do débito : \n")
+					leia(valor)
+					se(valor > saldo e valor >0 ){
+							escreva("Não é possível debitar ", valor, " reais.")
+                              	escreva("Seu saldo é de apenas ", saldo, " reais. ")
                               }
-                              senao{
-                              	debito = (saldo - valor)
-                              	escreva("Seu saldo atual é de: ", debito, "\n")
-                              	
-                              }
-				}
-		
+             		     senao{
+                              	saldo= saldo - valor 
+                              	escreva("Seu saldo atual é de ", saldo, " reais.")
+                              	escreva("Deseja efetuar outra operação a Conta Poupança [ S / N ] ?")
+                              	leia(opcaoLetra)
+                            	  	}se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
+                            	  		limpa()
+                              		escreva("Voltar ao menu [ S / N ]?")
+                    				leia(opcaoLetra)
+                              		}se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+                    					menu()
+                              		}senao{
+                              			limpa()
+									escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+									Util.aguarde(3000)
+									pare
+									}
+               	}se(opcao==3){
+               		limpa()
+               		escreva("Seu saldo atual é de ", saldo, " reais.")
+               		Util.aguarde(1000)
+               		escreva("Deseja realizar outra operação na Conta Poupança ?")
+               		leia(opcaoLetra)
+               		}se (opcaoLetra == 'n' ou opcaoLetra == 'N'){
+               				limpa()
+                    			escreva("Voltar ao menu [ S / N ]?")
+               				leia(opcaoLetra)
+                         		}se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+               					menu()
+                         		}senao{
+                         			limpa()
+								escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+								Util.aguarde(3000)
+								pare
+								}
+				
+				
+                    
 			}
+			limpa()
+			escreva("Você chegou ao limite de movimentações da Conta Poupança.\n")
+			Util.aguarde(2000)
+			escreva("Voltar ao menu [ S / N ] ?\n")
+			leia(opcaoLetra)
+     		se(opcaoLetra == 'S' ou opcaoLetra == 's'){
+				menu()
+     		}senao{
+     			limpa()
+				escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+				Util.aguarde(3000)
+				}
+			
 		}
 		funcao contaCorrente(){
 			inteiro quantidadeTalao=0
@@ -151,6 +211,7 @@ programa
 					}
 				}
 			se (opcao == 2){
+				limpa()
 				escreva ("Digite o valor do débito : \n")
 				leia(valor)
 				limpa()
@@ -201,6 +262,7 @@ programa
 							}
 			}
 			se (opcao == 3){
+				limpa()
 				escreva ("Digite o valor do crédito : \n")
 				leia(valor)
 				se (valor >0){
@@ -247,6 +309,7 @@ programa
 					} 
 			
 			se (opcao == 4){
+				limpa()
 				se(quantidadeTalao<3){
 					escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
 					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
@@ -271,6 +334,7 @@ programa
 					
 				
 			se ((x==3 ou x==6 ou x==9) e quantidadeTalao<3){
+				limpa()
 				escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
 				escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 				leia(opcaoLetra)
@@ -297,10 +361,11 @@ programa
 			}
 			
 			se(x==10){
-			escreva("Você chegou ao limite de movimentações da Conta Corrente")
-			Util.aguarde(2000)
-			se(quantidadeTalao<3){
-			escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
+				limpa()
+				escreva("Você chegou ao limite de movimentações da Conta Corrente")
+				Util.aguarde(2000)
+				se(quantidadeTalao<3){
+					escreva("Há talões de cheques disponivéis. Deseja fazer o uso [S / N] ? \n")
 					escreva("A cada talão a conta será debitada em 30.00 reais\n") 
 					leia(opcaoLetra) 
 					}
@@ -406,35 +471,51 @@ programa
 			real limite=10.000
 			para (inteiro i=1; i<=10; i++){
 			escreva("Bem vinde a Conta Empresa G6")
-			escreva("\nSeu saldo atual é de: "+saldo+" reais \n")
-			escreva("Escolha uma opção\n")
+			escreva("\nSeu saldo atual é de: "+saldo+" reais. \n")
+			escreva("Digite uma opção : \n")
 			escreva ("1 -Fazer um empréstimo\n2 - Voltar ao menu\n")
 			leia(opcao)
 			se (opcao == 1){
-				escreva("Valor de empréstimo disponível: R$10.000\n  Deseja realizar um empréstimo [S / N] ?: \n")
+				escreva("Valor de empréstimo disponível: ", limite, "reais. \n  Deseja realizar um empréstimo [S / N] ?: \n")
 				leia(opcaoLetra)
 				se (opcaoLetra == 'S'ou opcaoLetra == 's'){
 					escreva ("Digite o valor que deseja: ")
 					leia(limite)
-				emprestimo+=limite
-				se (limite > 0 e limite <= 10000){
-					escreva ("Empréstimo concluído ! \nValor atual de saldo: " ,saldo+emprestimo, " em sua conta G6!\n")
-					escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-						 menu()
-				} senao
-					escreva ("Não é possivel retirar este valor\n")
-				} senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
-						escreva ("Voltar ao menu [S / N] ?: \n")
-					leia(opcaoLetra)
-					se (opcaoLetra == 'S' ou opcaoLetra == 's'){
-						 menu()
-					} senao {
-						limpa()
-						escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
-					}
+					se(limite>emprestimo e (limite > 0 e limite <= 10000)){
+						emprestimo+=limite
+						escreva ("Empréstimo concluído ! \nValor atual de saldo: " ,saldo+emprestimo, " em sua conta G6!\n")}
+						se (emprestimo <10000){
+							escreva("Deseja realizar outra operação na Conta Empresa [S / N] ? ")
+							leia(opcao)
+						 	}se(opcaoLetra =='n' ou opcaoLetra == 'N'){
+						 		escreva("Voltar ao menu [ S / N ]?")
+						 		leia(opcao)
+						 		}se(opcaoLetra == 's' ou opcaoLetra == 'S'){
+						 			menu()
+						 		}senao{
+						 			limpa()
+									escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+									Util.aguarde(3000)
+						 		}
+				} senao {
+					escreva("Deseja realizar outra operação na Conta Empresa [S / N] ? ")
+					leia(opcao)
+					}se(opcaoLetra =='n' ou opcaoLetra == 'N'){
+						 escreva("Voltar ao menu [ S / N ]?")
+						 leia(opcao)
+						}se(opcaoLetra == 's' ou opcaoLetra == 'S'){
+						 	menu()
+						}senao{
+						 	limpa()
+							escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
+							Util.aguarde(3000)
 				}
 			}
-		}
+			se(opcao==2){
+				limpa()
+				menu()
+				}
+			}
 			escreva("Você chegou ao limite de movimentações da Conta Empresa")
 	          Util.aguarde(2000)
 	          escreva("Você gostaria de um empréstimo?: ")
@@ -446,8 +527,9 @@ programa
 	          	limpa()
 	          	escreva("\t\t\t\t\tObrigado por usar o G6 Bank!\n\n\n")
 	          	Util.aguarde(3000)	
+				}
 		}
-		}funcao contaEstudantil(){
+		funcao contaEstudantil(){
 			inteiro valorCredito
 			caracter s
 			para ( inteiro c=1;c<=10; c++){
@@ -534,7 +616,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1464; 
+ * @POSICAO-CURSOR = 15766; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
