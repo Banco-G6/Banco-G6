@@ -6,6 +6,7 @@ public class ContaEspecial extends Contag6 {
 	char op;
 
 	public ContaEspecial(int numero, String nomeCliente, int limite) {
+		super(numero, nomeCliente);
 		this.limite = limite;
 	}
 
