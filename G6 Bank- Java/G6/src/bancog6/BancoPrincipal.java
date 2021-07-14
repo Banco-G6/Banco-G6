@@ -1,9 +1,11 @@
 package bancog6;
 
 import java.util.Scanner;
+import ContaEstudantil;
+
 
 import entidades.ContaEspecial;
-
+import ContaEstudantil;
 public class BancoPrincipal {
 
 	public static void main(String[] args) {
@@ -22,6 +24,8 @@ public class BancoPrincipal {
 		System.out.println("Digite o seu nome: ");
 		nome = leia.next();
 		ContaEspecial conta1 = new ContaEspecial(numero, nome, 1000);
+		ContaEstudantil conta5= new ContaEstudantil(numero, nome, 5000);
+		
 		
 		do {
 			System.out.println("BANCO G6 - O BANCO A SUA ALTURA");

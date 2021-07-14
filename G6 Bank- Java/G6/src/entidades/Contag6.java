@@ -7,9 +7,10 @@ public abstract class Contag6 {
 	 private String nomeCliente;
 	 protected double saldo;
 	 //constructor
-	public Contag6() {
+	public Contag6(int numero, String nomeCliente) {
 		
-		
+		this.numero = numero;
+		this.nomeCliente = nomeCliente;
 	}
 	public int getNumero() {
 		return numero;

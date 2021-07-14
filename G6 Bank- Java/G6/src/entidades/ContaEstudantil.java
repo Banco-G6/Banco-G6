@@ -1,23 +1,64 @@
 package entidades;
 
+import java.util.Scanner;
+
 public class ContaEstudantil extends Contag6 {
 
-	private double LimiteDisponivel = 5000.0;
+
+	private double limiteEstudantil = 5000.0;
 	private char opcaoLetra;
 	private
 	Scanner leia = new Scanner(System.in);
 	
-	public ContEstudantil(int numero, String nomeCliente, int limiteDisponivel) {
+
+	public ContaEstudantil(int numero, String nomeCliente, double limiteEstudantil) {
 		super(numero, nomeCliente);
-		this.limiteDisponivel=limiteDisponivel;
+		this.limiteEstudantil = limiteEstudantil;
+	}
+
+	public double getLimiteEstudantil() {
+		return limiteEstudantil;
+	}
+
+	//public void setLimiteEstudantil(double limiteEstudantil) {
+		//this.limiteEstudantil = limiteEstudantil;
+//	}
+	public void usarLimiteEstudantil(double valor) {
+		super.credito(valor);
+		this.limiteEstudantil = limiteEstudantil - valor;
+		
+	}
+	@Override
+	public double getSaldo() {
+		super getSaldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
 	}
 	
 	public void menuEstudantil() {
+		double valorEmprestimo;
 		String menuEstudantil[] = {"Débito", "Crédito", "Saldo","Credito Estudantil", "Sair"};
 		
-		for(int x = 0; x<menuCorrente.length; x++) {
-			System.out.print((x+1) + " - " + menuCorrente[x] + "\n");
+		for(int x = 0; x<menuEstudantil.length; x++) {
+			System.out.print((x+1) + " - " + menuEstudantil[x] + "\n");
 		}
+	}
+		System.out.println("Sabemos que a vida de estudante pode não ser facil!/n");
+		System.out.println("Por isso estamos liberando um credito de R$:",getLimiteEstudantil);
+        System.out.println("Gostaria de contratar o emprestimo? [S/N] ");
+        opcaoLetra = leia.next().toUpperCase().charAt(0);
+        
+        if (valorEmprestimo == 's') {
+        	System.out.println("Qual valor você deseja?");
+        	valorEmprestimo= leia.nextDouble();
+        	if (valorEmprestimo <=0 && valorEmprestimo>limiteEstudantil) {
+        		System.out.println("Valor solicitado invalido!");
+        	}
+             else {
+        	System.out.println("Saldo atual de:"+saldo);//FAZER OVERRIDE NESSE SALDO
+        }
+        	else 
+        	{chamarmenu}
+        	
 }
-}
-
