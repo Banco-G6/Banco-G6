@@ -582,11 +582,16 @@ programa
 			}
 		}
 		funcao contaEstudantil(){
-			inteiro valorCredito=0
-			real limite=5000.0
-			real limiteDisponivel=5000.0
-			caracter s
-			para ( inteiro x=1;x<=10; x++){
+		inteiro valorCredito=0
+		real limite=5000.0
+		real limiteDisponivel=5000.0
+		caracter s
+		real saldoEstudante=0.0
+		real valorEstudantil=0.0
+		real respCredito=0.0
+		real valorEmprestimo=0
+		saldoEstudante+=valorEmprestimo
+		para ( inteiro x=1;x<=10; x++){
 			escreva ("Sua contagem de movimentações são: ", x, "\n")
 			escreva("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° \n")
 			escreva("Bem vinde a Conta Estudantil G6! \n")
@@ -594,113 +599,114 @@ programa
 			Util.aguarde(1500)
 			limpa()
 		
-			escreva ("Seu saldo atual é de "+saldo+" reais \n")
+			escreva ("Seu saldo atual é de "+saldoEstudante+" reais \n")
 			escreva ("\n1- para debito \n2- para crédito \n3- Emprestimo Estudantil\n4- Saldo\n5-Voltar ao menu\n")
 			leia(opcao)
-			debito=(saldo-valor)
-			credito=(saldo+valor)
-			saldo=(credito-debito)
+			
+				se (opcao == 4) {					
+				escreva ("\nNa proxima atualização JAVA está modalidade está disponivel")
+				Util.aguarde (3000)
+					}	
 
-			se (opcao == 4) {					
-						escreva ("\nNa proxima atualização JAVA está modalidade está disponivel")
+               	se (	opcao == 3) {	
+				escreva("\nSabemos que a vida de estudante não é facil\n")
+				escreva("\nPor isso pensando em você além de liberar um limite de credito estudantil")
+				escreva("\nCredito estudantil de ",limiteDisponivel)
+				escreva("\nDeseja contratar o credito estudantil? [S  /  N]")
+				leia (opcaoLetra) 
+
+			    		se (opcaoLetra == 'S'ou opcaoLetra == 's') {
+					escreva("\nSeu limite para credito estudantil é de",limiteDisponivel)
+		         		escreva("\nQual valor voce deseja contratar?")
+	               	leia(valorEmprestimo) 
+	               	// ADICIONAR INTEIRO valorCredito
+	               	limiteDisponivel-=valorEmprestimo
+	              			se (valor<=0){
+                     		escreva("Valor inválido")}
+	     		          
+						se (valor<=5000){
+							saldoEstudante+=valorEmprestimo
+							
+	              	     	escreva("\nSeu saldo agora é:\n "+valorEmprestimo)
+						escreva("Seu limite é de\n "+limiteDisponivel)
+					//	limiteDisponivel-=saldoEstudante
+						escreva("\nDeseja realizar outra operação [S  /  N]")
+						leia(opcaoLetra)
+							se (opcaoLetra == 'S'ou opcaoLetra == 'S'){
+							menu()}
+							senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
+							escreva ("Voltar ao menu [S / N]? \n")
+							leia (opcaoLetra)
+								se (opcaoLetra == 'S' ou opcaoLetra == 's') {
+								menu ()
+								}  
+								senao {		
+								escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
+								Util.aguarde (3000)	escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
+								Util.aguarde (3000)
+								}
+							}
+						}
+			    		}			 
+					se (valorEmprestimo>5000){
+	              	     escreva("/nSeu limite é insuficiente!/n")	
+					escreva("\nDeseja realizar outra operação [S  /  N]")
+					leia(opcaoLetra)
+						se (opcaoLetra == 'S'ou opcaoLetra == 'S'){
+						menu()
+						} senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
+						escreva ("Voltar ao menu [S / N]? \n")
+						leia (opcaoLetra)
+						se (opcaoLetra == 'S' ou opcaoLetra == 's') {
+						menu ()
+	
+						}  senao {
+		
+						escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
+						Util.aguarde (3000)	escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
 						Util.aguarde (3000)
-					}	
-
-               se (	opcao == 3) {	
-			escreva("\nSabemos que a vida de estudante não é facil\n")
-			escreva("\nPor isso pensando em você além de liberar um limite de credito estudantil")
-			escreva("\nCredito estudantil de 5 mil reais\n")
-			escreva("\nDeseja contratar o credito estudantil? [S  /  N]")
-			leia (opcaoLetra) 
-
-			   se (opcaoLetra == 'S'ou opcaoLetra == 's') {
-				escreva("\nSeu limite para credito estudantil é de 5 mil reais ")
-		          escreva("\nQual valor voce deseja contratar?")
-	               leia(valor)  // ADICIONAR INTEIRO valorCredito
-	               se (valor<=0){
-                     escreva("Valor inválido")}
-	     		
-					se (valor<=5000){
-					valorCredito+=valor
-	              
-				     escreva("\nSeu saldo agora é:\n "+valorCredito)
-					limiteDisponivel-=valorCredito	
-					escreva("Seu limite é de\n "+limiteDisponivel)
-					escreva("\nDeseja realizar outra operação [S  /  N]")
-					leia(opcaoLetra)
-					se (opcaoLetra == 'S'ou opcaoLetra == 'S')
-					
-					{
-					} senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
-					escreva ("Voltar ao menu [S / N]? \n")
-					leia (opcaoLetra)
-					se (opcaoLetra == 'S' ou opcaoLetra == 's') {
-					menu ()
-	
-					}  senao {
-		
-					escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
-					Util.aguarde (3000)	escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
-					Util.aguarde (3000)
+						}
+						}
+						se (valorEmprestimo<=0){
+                        		 escreva("Valor inválido")} 
 					}
-					}
-					}
-					 
-					se (valor>5000){
-					valorCredito+=valor
-	              
-				     escreva("/nSeu limite é insuficiente!/n")
-					limiteDisponivel-=valorCredito	
-					
-					escreva("\nDeseja realizar outra operação [S  /  N]")
-					leia(opcaoLetra)
-					se (opcaoLetra == 'S'ou opcaoLetra == 'S')
-					
-					{
-					} senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
-					escreva ("Voltar ao menu [S / N]? \n")
-					leia (opcaoLetra)
-					se (opcaoLetra == 'S' ou opcaoLetra == 's') {
-					menu ()
-	
-					}  senao {
-		
-					escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
-					Util.aguarde (3000)	escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
-					Util.aguarde (3000)
-					}
-					}
-					}
-					se (valor<=0){
-                         	escreva("Valor inválido")}}
-					 senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
-					  escreva ("Voltar ao menu [S / N]? \n")
-					   leia (opcaoLetra)
-					  se (opcaoLetra == 'S' ou opcaoLetra == 's') {
-					    menu()
-					}
-					senao se (valor<saldo) {
-					escreva ("Seu saldo é de:", debito, " reais. \n")
-					}	
-					}
-			    
-			   
-               
-               }		
                	
-					inteiro saldoCreditoEstudantil=0
+               	} 
+                         
+				 senao se (opcaoLetra == 'N' ou opcaoLetra == 'n') {
+				 escreva ("Voltar ao menu [S / N]? \n")
+				 leia (opcaoLetra)
+				 	se (opcaoLetra == 'S' ou opcaoLetra == 's') {
+				 	menu()
+					 }
+					senao {
+		
+					escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
+					Util.aguarde (3000)	escreva ("\t\t\t\t\tObrigado por usar o Banco G6! \n\n\n")
+					Util.aguarde (3000)
+					}
+				}		
+               	
+               
+		
+		    	
+				inteiro saldoCreditoEstudantil=0
 
-					
-					se (opcao == 1) {
-                            escreva ("Qual valor deseja: \n")
-					leia(valor)
-					
-						se (valor>saldo){
+				//debito
+				se (opcao == 1) {
+                    escreva ("Qual valor deseja: \n")
+				leia(valor)
 
-						escreva("\nSaldo Insuficiente\n")
-						escreva("\nTemos uma otima solução para voce")
-						escreva("\nVolte ao menu e veja 'Credito Estudantil\n")
-						escreva ("\nVoltar ao menu [S / N] ? \n")
+				se (valor<=0){
+				escreva("Valor Inválido!")	
+				}
+				se (valor<=saldoEstudante)
+				saldoEstudante-=valor
+					se (valor>saldoEstudante){
+					escreva("\nSaldo Insuficiente\n")
+					escreva("\nTemos uma otima solução para voce")
+					escreva("\nVolte ao menu e veja 'Credito Estudantil'\n")
+					escreva ("\nVoltar ao menu [S / N] ? \n")
 					leia(opcaoLetra)
 				     	se (opcaoLetra == 'S' ou opcaoLetra == 's'){
 						menu()
@@ -711,16 +717,19 @@ programa
 						
 						}
 						}
-					}
-				 	se (opcao == 2) { 
-				 		escreva ("Qual valor deseja: \n")
-					leia(valor)
-				 	saldo += valor
-				 	escreva ("Seu saldo é de:", saldo, " reais. \n")
-				 	
-				 	escreva("Deseja fazer outra operação na Conta Corrente [S / N] ?\n")
-				leia(opcaoLetra)
-				se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
+					}//fazersaldotalvez
+				 se (opcao == 2) { 
+				 escreva ("Qual valor deseja: \n")
+				 leia(valor)
+					 se (valor<=0){
+					 escreva("Valor Inválido!")	
+					 }
+					senao 
+					saldoEstudante+=valor
+				     escreva ("Seu saldo é de:", saldoEstudante, " reais. \n")
+				     escreva("Deseja fazer outra operação na Conta Estudantil [S / N] ?\n")
+				     leia(opcaoLetra)
+				 	se (opcaoLetra == 'n'ou opcaoLetra == 'N'){
 					limpa()
 					escreva ("Voltar ao menu [S / N] ? \n")
 					leia(opcaoLetra)
@@ -732,22 +741,21 @@ programa
 						Util.aguarde(3000)
 						}
 						}
-				}
+				 }
 				 	
-                             se (opcao == 5) 
-                             menu()
+                     se (opcao == 5){ 
+                     menu()
 					}	
-			}
-}
 			
-		
-
+		}
+}
+}
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 20835; 
+ * @POSICAO-CURSOR = 21445; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
