@@ -2,9 +2,10 @@ package entidades;
 
 public class ContaEspecial extends Contag6 {
 	private double limite;
+	private double newsaldo;
+	char op;
 
-	public ContaEspecial(int numero, String nomeCliente, double limite) {
-		super(numero, nomeCliente);
+	public ContaEspecial(int numero, String nomeCliente, int limite) {
 		this.limite = limite;
 	}
 
@@ -17,8 +18,15 @@ public class ContaEspecial extends Contag6 {
 	}
 	
 	public void usarLimite(double valor) {
-		super.credito(valor);
-		this.limite = limite - valor;
-		
+		if(limite == 0) {
+			System.out.println("Limite zerado");
+		}
+		else if(limite<0) {
+			System.out.println("Valor solicitado maior que limite");
+		}else {
+			this.limite = this.limite - valor;
+			super.credito(valor);
+			System.out.println("Limite atual: "+limite);
+		}
 	}
 }
