@@ -1,8 +1,10 @@
+package entidades; 
+
 import java.util.Scanner;
 
 public class ContaCorrente extends Contag6 {
-		private int chequesDisponiveis = 3;
-		private char opcaoLetra;
+		public int chequesDisponiveis = 3;
+		public char opcaoLetra;
 		Scanner leia = new Scanner(System.in);
 		
 		public ContaCorrente(int numero, String nomeCliente, int chequesDisponiveis) {
@@ -10,13 +12,13 @@ public class ContaCorrente extends Contag6 {
 			this.chequesDisponiveis = chequesDisponiveis;
 		}
 		
-		public void menuCorrente() {
+		/*public void menuCorrente() {
 			String menuCorrente[] = {"Débito", "Crédito", "Saldo","Cheques", "Sair"};
 			
 			for(int x = 0; x<menuCorrente.length; x++) {
 				System.out.print((x+1) + " - " + menuCorrente[x] + "\n");
 			}
-		}
+		}*/
 		
 		public void pedirCheque (int chequesPedidos) {
 			if (chequesDisponiveis == 0) {
@@ -40,6 +42,7 @@ public class ContaCorrente extends Contag6 {
 						}
 						
 					 	if ((chequesPedidos*30.00) <= saldo) {
+					 		saldo -= chequesPedidos*30.00;
 					 		System.out.println("Parabéns pela escolha!");
 					 		System.out.println("Seu saldo atual é "+ saldo);
 					 		chequesDisponiveis -= chequesPedidos;
@@ -54,6 +57,8 @@ public class ContaCorrente extends Contag6 {
 				}
 				else {
 					
-					break;
-				}				
+					System.out.println("x");;
+				}
+			}		
+		}				
 }

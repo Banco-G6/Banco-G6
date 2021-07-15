@@ -18,17 +18,46 @@ public class ContaEspecial extends Contag6 {
 		this.limite = limite;
 	}
 	
-	public void usarLimite(double valor) {
-		if(limite == 0) {
-			System.out.println("Limite zerado");
-		}
-		else if(limite<0) {
-			System.out.println("Valor solicitado maior que limite");
+	
+	@Override
+	public void credito(double valorcred) {
+		if (valorcred < 0) {
+			System.out.println("Valor digitado inválido");
 		}else {
-			this.limite = this.limite - valor;
-			super.credito(valor);
-			System.out.println("Limite atual: "+limite);
+			this.saldo+= valorcred;
+			System.out.printf("\nCrédito realizado com sucesso, saldo atualizado R$%.2f ", saldo);
+			System.out.print("\n");
 		}
 	}
-	
+	@Override
+	public void debito(double valordeb) {
+		if (valordeb <= 0) {
+			System.out.println("Valor digitado inválido");
+			}else if(valordeb > saldo + limite) {
+				System.out.printf("\nNão é possível sacar %.2f", valordeb);
+				System.out.print("\n");
+			}else if(saldo >= valordeb) {
+				saldo-=valordeb;
+				System.out.printf("\nDébito realizado, saldo atualizado R$%.2f ", saldo);
+				System.out.print("\n");
+			}else if(saldo == 0 && valordeb > limite) {
+				System.out.printf("Não há saldo!");
+				System.out.print("\n");
+			}else if(saldo == 0 && valordeb < limite) {
+				limite -= valordeb;
+				System.out.println("Débito realizado com sucesso!!!");
+				System.out.printf("\nLimite atualizado: R$%.2f ",limite);
+				System.out.println("\n");
+			}else if(saldo<valordeb) {
+				newsaldo = valordeb - saldo;
+				limite -= newsaldo;
+				saldo = 0.00;
+				System.out.printf("\nDébito realizado com sucesso, saldo atualizado R$%.2f ", newsaldo);
+				System.out.print("\n");
+			}
+	}
+	public void mostraSaldo() {
+		System.out.println("Seu saldo atual é: "+ saldo);
+		System.out.println("Seu limite atual é: "+ limite);
+	}
 }

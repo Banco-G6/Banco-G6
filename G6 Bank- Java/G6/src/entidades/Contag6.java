@@ -3,8 +3,8 @@ package entidades;
 public abstract class Contag6 {
 	
 	//atributos
-	 private int numero;
-	 private String nomeCliente;
+	 protected int numero;
+	 protected String nomeCliente;
 	 protected double saldo;
 	 //constructor
 	public Contag6(int numero, String nomeCliente) {
@@ -32,17 +32,22 @@ public abstract class Contag6 {
 	}
 	//metodos
 	public void credito(double valorcred) {
+		if (valorcred>0) {
 		this.saldo += valorcred;
 		System.out.println("Valor de saldo atualizado é : "+saldo);
+		} else {
+			System.out.println("Valor inválido.");
+		}
 	}
 	public void debito(double valordeb) {
-		if(valordeb >= 0) {
+		if(valordeb <= 0) {
 				System.out.println("Não é possível realizar o débito");	
 			}
 			else if(valordeb > saldo) {
 				System.out.println("Valor de saldo indisponível, realize um crédito");
 			}else {
 				this.saldo -= valordeb;	
+				System.out.println("Valor de saldo atualizado é : "+saldo);
 			}
 		}
 	}
