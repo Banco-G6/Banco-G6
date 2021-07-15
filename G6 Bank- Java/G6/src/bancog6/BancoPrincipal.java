@@ -1,11 +1,8 @@
 package bancog6;
 
 import java.util.Scanner;
-import ContaEstudantil;
-
-
+import entidades.ContaEstudantil;
 import entidades.ContaEspecial;
-import ContaEstudantil;
 public class BancoPrincipal {
 
 	public static void main(String[] args) {
@@ -25,7 +22,6 @@ public class BancoPrincipal {
 		nome = leia.next();
 		ContaEspecial conta1 = new ContaEspecial(numero, nome, 1000);
 		ContaEstudantil conta5= new ContaEstudantil(numero, nome, 5000);
-		
 		
 		do {
 			System.out.println("BANCO G6 - O BANCO A SUA ALTURA");
@@ -66,7 +62,53 @@ public class BancoPrincipal {
 						break;
 						}
 					}
+			}if(op == '5') {
+				
+				System.out.println("Sabemos que a vida de estudante pode não ser facil!/n");
+				System.out.println("Por isso estamos liberando um credito de R$:"+conta5.getLimiteEstudantil());
+		        System.out.println("Gostaria de contratar o emprestimo? [S/N] ");
+		       conta5.setOpcaoLetra(leia.next().toUpperCase().charAt(0));
+		        
+		        if (conta5. valorEmprestimo == 's') {
+		        	System.out.println("Qual valor você deseja?");
+		        	valorEmprestimo= leia.nextDouble();
+		        	if ( valorEmprestimo <=0 && valorEmprestimo>limiteEstudantil) {
+		        		System.out.println("Valor solicitado invalido!");
+		        	}
+		             else {
+		        	System.out.println("Saldo atual de:"+saldo);//FAZER OVERRIDE NESSE SALDO
+		        }
+		     }
+		        	else {
+		        		System.out.println("");
+			
+		        	}
 			}
 		}while (op!=1);
+		
+		
+			
+			/*
+			System.out.println("Sabemos que a vida de estudante pode não ser facil!/n");
+			System.out.println("Por isso estamos liberando um credito de R$:"+conta5.getLimiteEstudantil());
+	        System.out.println("Gostaria de contratar o emprestimo? [S/N] ");
+	        conta5.setOpcaoLetra(leia.next().toUpperCase().charAt(0));
+	        
+	        if (conta5.valorEmprestimo == 's') {
+	        	System.out.println("Qual valor você deseja?");
+	        	valorEmprestimo= leia.nextDouble();
+	        	if (valorEmprestimo <=0 && valorEmprestimo>limiteEstudantil) {
+	        		System.out.println("Valor solicitado invalido!");
+	        	}
+	             else {
+	        	System.out.println("Saldo atual de:"+saldo);//FAZER OVERRIDE NESSE SALDO
+	        }
+	     }
+	        	else {
+	        		System.out.println("");
+		
+	        	}
+			*/
+		
 	}
 }

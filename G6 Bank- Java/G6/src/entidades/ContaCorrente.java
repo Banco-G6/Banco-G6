@@ -1,3 +1,5 @@
+package entidades; 
+
 import java.util.Scanner;
 
 public class ContaCorrente extends Contag6 {
@@ -54,6 +56,8 @@ public class ContaCorrente extends Contag6 {
 				}
 				else {
 					
-					break;
-				}				
+					System.out.println("x");;
+				}
+			}		
+		}				
 }
