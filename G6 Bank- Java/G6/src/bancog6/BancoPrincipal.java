@@ -2,11 +2,16 @@ package bancog6;
 
 import java.util.Random;
 import java.util.Scanner;
+<<<<<<< HEAD
 
 import entidades.ContaCorrente;
 import entidades.ContaEspecial;
 import entidades.ContaPoupanca;
 
+=======
+import entidades.ContaEstudantil;
+import entidades.ContaEspecial;
+>>>>>>> 5d49be295789a1ea24bc97db254ad07653a13722
 public class BancoPrincipal {
 
 	public static void main(String[] args) {
@@ -26,12 +31,19 @@ public class BancoPrincipal {
 		numero = random.nextInt(99999);
 		System.out.println("Gerando o número da sua conta...");
 		System.out.println("Digite o seu nome: ");
+<<<<<<< HEAD
 		nome = leia.next().toUpperCase();
 		ContaCorrente conta2 = new ContaCorrente(numero, nome,3);
 		ContaEspecial conta3 = new ContaEspecial(numero, nome, 1000);
 		ContaPoupanca conta1 = new ContaPoupanca(numero, nome, 25);
 		System.out.println("\n");
 		System.out.print("\r\n");
+=======
+		nome = leia.next();
+		ContaEspecial conta1 = new ContaEspecial(numero, nome, 1000);
+		ContaEstudantil conta5= new ContaEstudantil(numero, nome, 5000);
+		
+>>>>>>> 5d49be295789a1ea24bc97db254ad07653a13722
 		do {
 			System.out.printf("-----------------------------------\n");
 			System.out.println("Cliente: "+nome+" Conta: "+numero);
@@ -150,8 +162,58 @@ public class BancoPrincipal {
 						break;
 						}
 					}
+			}if(op == '5') {
+				
+				System.out.println("Sabemos que a vida de estudante pode não ser facil!/n");
+				System.out.println("Por isso estamos liberando um credito de R$:"+conta5.getLimiteEstudantil());
+		        System.out.println("Gostaria de contratar o emprestimo? [S/N] ");
+		       conta5.setOpcaoLetra(leia.next().toUpperCase().charAt(0));
+		        
+		        if (conta5. valorEmprestimo == 's') {
+		        	System.out.println("Qual valor você deseja?");
+		        	valorEmprestimo= leia.nextDouble();
+		        	if ( valorEmprestimo <=0 && valorEmprestimo>limiteEstudantil) {
+		        		System.out.println("Valor solicitado invalido!");
+		        	}
+		             else {
+		        	System.out.println("Saldo atual de:"+saldo);//FAZER OVERRIDE NESSE SALDO
+		        }
+		     }
+		        	else {
+		        		System.out.println("");
+			
+		        	}
 			}
+<<<<<<< HEAD
 			}while (op!=6);
+=======
+		}while (op!=1);
+		
+		
+			
+			/*
+			System.out.println("Sabemos que a vida de estudante pode não ser facil!/n");
+			System.out.println("Por isso estamos liberando um credito de R$:"+conta5.getLimiteEstudantil());
+	        System.out.println("Gostaria de contratar o emprestimo? [S/N] ");
+	        conta5.setOpcaoLetra(leia.next().toUpperCase().charAt(0));
+	        
+	        if (conta5.valorEmprestimo == 's') {
+	        	System.out.println("Qual valor você deseja?");
+	        	valorEmprestimo= leia.nextDouble();
+	        	if (valorEmprestimo <=0 && valorEmprestimo>limiteEstudantil) {
+	        		System.out.println("Valor solicitado invalido!");
+	        	}
+	             else {
+	        	System.out.println("Saldo atual de:"+saldo);//FAZER OVERRIDE NESSE SALDO
+	        }
+	     }
+	        	else {
+	        		System.out.println("");
+		
+	        	}
+			*/
+		
+>>>>>>> 5d49be295789a1ea24bc97db254ad07653a13722
 	}
 }
 		
