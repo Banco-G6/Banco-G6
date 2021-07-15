@@ -6,6 +6,7 @@ package entidades;
 		public ContaEmpresa(int numero, String nomeCliente, double emprestimo) {
 	        super(numero, nomeCliente);
 			this.emprestimo = emprestimo;
+			
 		}
 		
 		public double getEmprestimo() {
